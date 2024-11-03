@@ -1,63 +1,58 @@
-import {
-  ArrowRightIcon,
-  ChatBubbleBottomCenterIcon,
-  GlobeAltIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline";
 import "./App.css";
-import logo from "./assets/logo-svg.svg";
+import Header from "./components/Header";
+import Welcome from "./components/Welcome";
+import {
+  HotelInfoIcon,
+  InRoomDiningIcon,
+  SpaBookingIcon,
+  TaxiIcon,
+  FoodDeliveryIcon,
+  ThingsToDoIcon,
+  PhoneIcon,
+} from "./assets/icons/index.jsx";
+import List from "./components/List";
 
 function App() {
-  return (
-    <>
-      <div className="content-row  bg-gray-900">
-        <div className="content-div min-h-screen flex flex-col gap-5 p-6">
-          <div className="flex flex-col md:flex-row"></div>
-          <div className="flex justify-between gap-5 items-center">
-            <div>
-              <img src={logo} className="w-8 opacity-80 aspect-square" />
-            </div>
+  const list = [
+    { label: "Hotel phone", icon: <PhoneIcon /> },
+    { label: "View hotel information", icon: <HotelInfoIcon /> },
+    { label: "In room dining", icon: <InRoomDiningIcon /> },
+    { label: "Spa bookings", icon: <SpaBookingIcon /> },
+    { label: "Book a taxi", icon: <TaxiIcon /> },
+    { label: "Food delivery", icon: <FoodDeliveryIcon /> },
+    { label: "Things to do", icon: <ThingsToDoIcon /> },
+  ];
 
-            <div className="text-gray-500 flex items-center gap-5">
-              <div className="uppercase">en</div>
-              <GlobeAltIcon className="w-6" />
+  return (
+    <div className="md:content-row bg-gray-900 min-h-screen flex justify-center w-full">
+      <div className="md:content-div  flex flex-col gap-5 pt-6 h-full ">
+        <div className="px-6 pb-6">
+          <Header />
+        </div>
+
+        <div className="flex-grow sm:flex-grow-0 flex flex-col md:flex-row gap-12 lg:gap-24 md:min-h-[calc(100vh-7rem)] items-center md:justify-center">
+          <div className="px-6 flex flex-col md:flex-row gap-12 w-full md:max-w-md">
+            <div className="flex justify-center">
+              <Welcome />
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-12">
-            <div className="flex flex-col gap-5 max-w-full w-full">
-              <div className="text-4xl text-white capitalize font-medium flex flex-col gap-3 py-4 ">
-                <div>Eccobell Hotel</div>
-                <div>Shoreditch</div>
-              </div>
-
-              <div className="py-5 text-blue font-bold text-3xl">Room 301</div>
-
-              <div className="text">
-                Welcome to the Guest Code. This is your home for all the
-                information and services you may require during your stay.
-              </div>
-
-              <div className="flex justify-center  w-full bg-blue text-white gap-6 rounded-lg px-4 py-2.5">
-                <ChatBubbleBottomCenterIcon className="w-4" />
-                <div>Ask Belle, your guest assistant</div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-5 bg-white bg-opacity-60 rounded-xl w-[100.1vw] -mx-[10vw] md:-mx-0 min-h-screen md:min-h-auto w-full">
-              <div className="bg-white rounded-tl-xl rounded-tr-xl flex justify-between p-4 text-gray-900">
-                <div className="flex gap-3 items-center">
-                  <PhoneIcon className="w-4" />
-                  <div className="text-gray-900">Hotel phone</div>
-                </div>
-
-                <ArrowRightIcon className="w-6" />
-              </div>
+          <div className=" flex justify-center  md:max-w-md  bg-grayBg p-6 lg:p-12 rounded-tl-3xl rounded-tr-3xl md:rounded-3xl w-full">
+            <div className="flex flex-col gap-1 max-w-md w-full">
+              {list.map((l, index) => (
+                <List
+                  list={l}
+                  key={index}
+                  first={index === 0}
+                  last={index === list.length - 1}
+                  arrowType="arrow"
+                />
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
