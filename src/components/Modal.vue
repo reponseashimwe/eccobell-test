@@ -2,12 +2,12 @@
   <transition name="slide-up">
     <div
       v-if="activeTab"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-end justify-center"
+      class="fixed md:relative lg:left-0 inset-0 bg-black bg-opacity-50 flex items-end justify-center bottom-0"
     >
       <div
-        class="bg-grayBg rounded-t-3xl w-full max-w-md h-[calc(90vh)] flex flex-col overflow-y-auto"
+        class="bg-grayBg rounded-t-3xl w-full max-w-md md:max-w-full h-[calc(90vh)] md:h-[75vh] flex flex-col overflow-y-auto"
       >
-        <div class="flex-col flex gap-3 bg-white p-5">
+        <div class="flex-col flex gap-3 bg-white p-5 sticky top-0 shadow">
           <!-- Modal Header -->
           <div class="flex bg-white items-center justify-between">
             <div class="flex gap-4">
@@ -15,7 +15,11 @@
                 <ChevronLeftIcon class="w-5" />
               </button>
             </div>
-            <button @click="$emit('close')" class="text-gray-500">
+            <button
+              @click="$emit('close')"
+              v-if="activeTab.back"
+              class="text-gray-500"
+            >
               <XMarkIcon class="w-5" />
             </button>
           </div>
@@ -44,7 +48,7 @@
         </div>
 
         <!-- Tab Content -->
-        <div class="flex-grow bg-grayBg rounded-lg p-4 px-8">
+        <div class="flex-grow bg-grayBg rounded-lg p-5">
           <component
             :is="activeTab.component"
             v-bind="activeTab.props"
@@ -72,14 +76,18 @@ import { XMarkIcon, ChevronLeftIcon } from '@heroicons/vue/24/outline'
 const props = defineProps({
   activeTab: Object,
   tabs: Array,
+  open,
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'openModal'])
 const setActiveTab = tab => (props.activeTab = tab)
 
 const goBack = () => {
   // Placeholder function for 'Back' button functionality
-  emit('back')
+  if (props.activeTab.back) emit('openModal', props.activeTab.back)
+  else {
+    emit('close')
+  }
 }
 </script>
 
