@@ -6,7 +6,7 @@
       <div>Eccobell Hotel</div>
       <div>Shoreditch</div>
     </div>
-    <div class="text-blue font-bold text-3xl md:text-4xl">Room 301</div>
+    <div class="text-blue font-bold text-3xl md:text-4xl">{{ roomNo }}</div>
     <div class="text-gray-300 lg:text-lg">
       Welcome to the Guest Code. This is your home for all the information and
       services you may require during your stay.
@@ -21,5 +21,10 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue'
 import { ChatBubbleIcon } from '../assets/icons/index'
+
+const props = defineProps({
+  roomNo: String,
+})
 </script>
