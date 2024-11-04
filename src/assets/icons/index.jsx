@@ -18,8 +18,8 @@ export const AmenitiesIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const ChatBubbleIcon = () => {
   return (
@@ -41,8 +41,8 @@ export const ChatBubbleIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const FoodDeliveryIcon = () => {
   return (
@@ -64,8 +64,8 @@ export const FoodDeliveryIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const FoodDrinkIcon = () => {
   return (
@@ -83,8 +83,8 @@ export const FoodDrinkIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const HotelInfoIcon = () => {
   return (
@@ -106,8 +106,8 @@ export const HotelInfoIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const HouseKeepingIcon = () => {
   return (
@@ -142,8 +142,8 @@ export const HouseKeepingIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const InRoomDiningIcon = () => {
   return (
@@ -168,8 +168,8 @@ export const InRoomDiningIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const KeyCheckInIcon = () => {
   return (
@@ -187,8 +187,8 @@ export const KeyCheckInIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const PhoneIcon = () => {
   return (
@@ -213,8 +213,8 @@ export const PhoneIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const ReceiptionIcon = () => {
   return (
@@ -249,8 +249,8 @@ export const ReceiptionIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const ReviewIcon = () => {
   return (
@@ -268,8 +268,8 @@ export const ReviewIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const RoomInfoIcon = () => {
   return (
@@ -304,8 +304,8 @@ export const RoomInfoIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const SpaBookingIcon = () => {
   return (
@@ -340,8 +340,8 @@ export const SpaBookingIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const TaxiIcon = () => {
   return (
@@ -376,8 +376,8 @@ export const TaxiIcon = () => {
         </defs>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 export const ThingsToDoIcon = () => {
   return (
@@ -395,5 +395,5 @@ export const ThingsToDoIcon = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
