@@ -1,102 +1,102 @@
-# Project Name
+# Eccobell Hotel SPA
 
-## Description
-
-A brief description of your project, including its purpose and functionality. This project is designed to [insert main functionality or goals here].
+This project is a single-page application (SPA) developed as a test for Eccobell. The application is built using Vue.js, Vite, and Tailwind CSS, and it integrates Heroicons and SVG icons designed in Figma for an intuitive user experience.
 
 ## Technologies Used
 
-- **Vue.js:** The JavaScript framework used for building the user interface.
-- **Tailwind CSS:** Utility-first CSS framework for styling the components.
-- **Axios:** For making API requests.
-- **[Other technologies/libraries as needed]**
+- **Vue.js**: A progressive JavaScript framework for building user interfaces.
+- **Vite**: A build tool that provides a fast and efficient development experience.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Heroicons**: A set of free, open-source SVG icons designed to work seamlessly with Tailwind CSS.
+- **Figma**: A collaborative design tool used to create and export SVG icons and other design elements.
 
-## Installation
+## Project Overview
 
-### Prerequisites
-
-Ensure you have the following installed:
-
-- Node.js
-- npm or yarn
-
-### Steps to Install
-
-1. Clone the repository:
-   ```bash
-   git clone [repository-url]
-   ```
-2. Navigate into the project directory:
-   ```bash
-   cd [project-directory]
-   ```
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-   or
-
-   ```bash
-   yarn install
-   ```
-
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-   or
-   ```bash
-   yarn dev
-   ```
-
-## Features
-
-- List out key features of your project here.
-- Describe the functionality provided by different components, such as the `List` component which displays items with icons and bodies, and the modal for displaying information.
+The Eccobell Hotel SPA features a clean and user-friendly interface that provides information about hotels, local attractions, and allows users to submit reviews. The design emphasizes code reusability, utilizing a single `List.vue` component across various sections of the app. It also employs a tabbed interface within the `Modal.vue` to separate different views logically.
 
 ## Components
 
-### `CustomSVG.vue`
+### 1. **App.vue**
 
-- This component renders a simple SVG with a rectangular background.
-- **Props:** None (can be extended for future customization).
-- **Usage:**
-  ```vue
-  <CustomSVG />
-  ```
+The main entry point of the application.
 
-### `List.vue`
+- **Features**:
+  - Manages global state.
+  - Handles modal visibility and active tab selection.
+  - `tabs` (Array): Contains objects representing each tab, including the title, description, and the component to render.
 
-- This component takes a list of items and renders them.
-- **Props:**
-  - `items`: Array of items to be displayed.
-  - `iconType`: String that determines the type of icon to render (e.g., 'image').
-- **Events:**
-  - `openModal`: Emits when an item is clicked to open a modal.
+### 2. **Modal.vue**
 
-### `ThingsToDo.vue`
+Displays content in a modal format with tab navigation.
 
-- This component displays a list of attractions with images and descriptions.
-- **Props:**
-  - `openModal`: Function to handle opening a modal.
-- **List Structure:**
-  ```javascript
-  const list = [
-    {
-      label: 'London Shuffle Club',
-      icon: '/london.png', // path to the image
-      body: '<div class="inner-list"><p class="text-gray-500">Free drink</p><p class="text-primary">0.1km</p></div>',
-    },
-    // More items...
-  ]
-  ```
+- **Props**:
+  - `activeTab` (Object): Represents the currently active tab, which includes its title and description.
+  
+- **Features**:
+  - Supports switching between different tabs.
+  - Emits events to manage modal visibility.
 
-## Contribution
+### 3. **List.vue**
 
-Feel free to submit issues or pull requests if you have suggestions or enhancements.
+A reusable component that displays a list of items, such as attractions or hotel amenities.
 
-## License
+- **Props**:
+  - `items` (Array): The list of items to be displayed.
+  - `iconType` (String): Specifies the type of icon to use (e.g., "image" for displaying images).
+  - `hasButton` (Boolean): Determines whether to show a button at the end of the list.
+- **Features**:
+  - Renders each item with an optional button for interaction.
+  - Uses props to control the display of icons and buttons, promoting code reusability.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### 4. **SubmitReview.vue**
+
+A form component for submitting hotel reviews and ratings.
+
+- **Features**:
+  - Contains fields for rating and review text.
+
+### 5. **HotelPhone.vue**
+
+Displays hotel contact information with iconography.
+The hotel's phone stations to be called displayed using `List`.
+- **Features**:
+  - Integrates Chevron icons for navigation or additional actions.
+
+### 6. **HotelInfo.vue**
+
+Provides detailed information about the hotel, including amenities and services.
+
+- **Props**:
+  - `hotelDetails` (Object): Contains information about the hotel, such as name, description, and amenities.
+- **Features**:
+  - Integrate with the `List` component to display hotel amenities in a user-friendly manner.
+
+### 7. **FoodDelivery.vue**
+
+Allows users to explore food delivery options available at the hotel.
+
+  - `deliveryOptions` (Array): A list of food delivery services and options.
+- **Features**:
+  - Integrates the `List` component to showcase various food delivery options.
+  - Enables users to select and order food easily through the interface.
+
+### 8. **ThingsToDo.vue**
+
+Shows a list of local attractions for hotel guests.
+
+- **Props**:
+  - `openModal` (Function): A function to open the modal when an item is clicked.
+- **Features**:
+  - Uses the `List` component to display attractions.
+  - Triggers modal opening to provide more information about selected activities.
+
+### How to Use the `List` Component
+
+The `List` component allows for versatile usage across the application. When utilizing this component, you can specify the following props:
+
+- **`iconType`**: Determines the visual representation of the items. For example, setting `iconType="image"` will render images from the provided item data.
+- **`hasButton`**: When set to `true`, it will render a button at the bottom of the list, which can be used for actions like submitting a review or accessing more details.
+
+### Conclusion
+
+This SPA demonstrates the effective use of Vue.js components and modern web technologies to create an interactive and visually appealing hotel information application. By focusing on code reusability and modular design, the project provides a solid foundation for future enhancements and features.
