@@ -14,9 +14,9 @@
       <div class="flex gap-2">
         <div
           v-if="iconType === 'bgrounded'"
-          class="bg-gray-200 p-2 rounded-full"
+          class="bg-gray-200 h-8 aspect-square rounded-full flex items-center justify-center"
         >
-          <component :is="item.icon" class="w-4 h-4" />
+          <component :is="item.icon" class="w-5" />
         </div>
 
         <!-- If iconType is 'image', display the icon without additional styling -->
@@ -40,7 +40,7 @@
 
       <div>
         <ChevronRightIcon v-if="arrowType == 'chevron'" class="w-4 stroke-2" />
-        <ArrowRightIcon v-else class="w-6" />
+        <ArrowRightIcon v-else class="w-4" />
       </div>
     </li>
   </ul>

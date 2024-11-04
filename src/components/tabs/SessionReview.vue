@@ -1,72 +1,84 @@
 <template>
-  <div class="max-w-lg mx-auto p-6 bg-white rounded-lg">
+  <div
+    class="max-w-lg mx-auto p-6 bg-white rounded-lg oveflow-y-auto max-h-full"
+  >
     <!-- Hotel Offering Rating -->
     <div class="mb-6">
-      <label class="block text-gray-700 font-semibold mb-2"
+      <label class="block text-gray-700 text-sm font-semibold mb-2"
         >Hotel Offering Rating</label
       >
-      <div class="flex items-center space-x-2">
-        <span
-          v-for="star in 5"
-          :key="'hotel-star-' + star"
-          @click="hotelRating = star"
-          :class="star <= hotelRating ? 'text-blue' : 'text-gray-300'"
-          class="w-6 h-6 cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
+
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-2">
+          <span
+            v-for="star in 5"
+            :key="'hotel-star-' + star"
+            @click="hotelRating = star"
+            :class="star <= hotelRating ? 'text-blue' : 'text-gray-300'"
+            class="w-6 h-6 cursor-pointer"
           >
-            <path
-              d="M12 2.5l3.09 6.26L22 9.75l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.62 2 9.75l6.91-1.01L12 2.5z"
-            />
-          </svg>
-        </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.5l3.09 6.26L22 9.75l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.62 2 9.75l6.91-1.01L12 2.5z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div>{{ hotelRating }} /5</div>
       </div>
     </div>
 
     <!-- Separator -->
-    <hr class="my-4 border-gray-300" />
+    <hr class="my-4 border-gray-100 border-2" />
 
     <!-- Experience with EcoBell Rating -->
     <div class="mb-6">
-      <label class="block text-gray-700 font-semibold mb-2"
+      <label class="block text-gray-700 text-sm font-semibold mb-2"
         >Experience using EcoBell</label
       >
-      <div class="flex items-center space-x-2">
-        <span
-          v-for="star in 5"
-          :key="'eco-star-' + star"
-          @click="ecoBellRating = star"
-          :class="star <= ecoBellRating ? 'text-blue' : 'text-gray-300'"
-          class="w-6 h-6 cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-2">
+          <span
+            v-for="star in 5"
+            :key="'eco-star-' + star"
+            @click="ecoBellRating = star"
+            :class="star <= ecoBellRating ? 'text-blue' : 'text-gray-300'"
+            class="w-6 h-6 cursor-pointer"
           >
-            <path
-              d="M12 2.5l3.09 6.26L22 9.75l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.62 2 9.75l6.91-1.01L12 2.5z"
-            />
-          </svg>
-        </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.5l3.09 6.26L22 9.75l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.62 2 9.75l6.91-1.01L12 2.5z"
+              />
+            </svg>
+          </span>
+        </div>
+
+        <div>{{ ecoBellRating }}/5</div>
       </div>
     </div>
 
     <!-- Ease of Use Buttons -->
     <div class="mb-6">
-      <label class="block text-gray-700 font-semibold mb-2">Ease of Use</label>
+      <label class="block text-gray-700 text-sm font-semibold mb-2"
+        >Ease of Use</label
+      >
       <div class="flex space-x-4">
         <button
           @click="easeOfUse = 'easy'"
           :class="
             easeOfUse === 'easy'
-              ? 'border border-blue bg-blue  bg-opacity-50 rounded-full'
-              : 'border bg-gray-200 bg-opacity-50 rounded-full text-gray-700'
+              ? 'border border-blue bg-blue  rounded-full'
+              : 'border bg-gray-200 border border-transparent rounded-full text-gray-700'
           "
-          class="px-4 py-2 rounded-full bg-opacity-50 transition"
+          class="px-4 py-2 rounded-full bg-opacity-40 transition text-sm"
         >
           Easy to Use
         </button>
@@ -75,9 +87,9 @@
           :class="
             easeOfUse === 'not_easy'
               ? 'border border-blue bg-blue  bg-opacity-10 rounded-full'
-              : 'border bg-gray-200 bg-opacity-50 rounded-full text-gray-700'
+              : 'border bg-gray-200 border border-transparent rounded-full text-gray-700'
           "
-          class="px-4 py-2 rounded-full bg-opacity-50 transition"
+          class="px-4 py-2 rounded-full bg-opacity-20 border-opacity-30 text-sm transition"
         >
           Not Easy
         </button>
@@ -86,20 +98,22 @@
 
     <!-- Comments Section -->
     <div class="mb-6">
-      <label class="block text-gray-700 font-semibold mb-2" for="comments"
+      <label
+        class="block text-gray-700 text-sm font-semibold mb-2"
+        for="comments"
         >Comments</label
       >
       <textarea
         v-model="comments"
         id="comments"
         placeholder="Anything  you couldn’t find or feel like we can improve on?"
-        class="w-full bg-grayBg font-inherit p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="w-full bg-grayBg bg-opacity-90 text-sm font-inherit p-3 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         rows="3"
       ></textarea>
     </div>
 
     <!-- Submit Button -->
-    <div class="flex justify-end">
+    <div class="flex justify-end hidden">
       <button
         @click="submitForm"
         class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
