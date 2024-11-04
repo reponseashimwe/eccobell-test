@@ -1,35 +1,102 @@
-# eccobell
+# Project Name
 
-This template should help get you started developing with Vue 3 in Vite.
+## Description
 
-## Recommended IDE Setup
+A brief description of your project, including its purpose and functionality. This project is designed to [insert main functionality or goals here].
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Technologies Used
 
-## Customize configuration
+- **Vue.js:** The JavaScript framework used for building the user interface.
+- **Tailwind CSS:** Utility-first CSS framework for styling the components.
+- **Axios:** For making API requests.
+- **[Other technologies/libraries as needed]**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Installation
 
-## Project Setup
+### Prerequisites
 
-```sh
-pnpm install
-```
+Ensure you have the following installed:
 
-### Compile and Hot-Reload for Development
+- Node.js
+- npm or yarn
 
-```sh
-pnpm dev
-```
+### Steps to Install
 
-### Compile and Minify for Production
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd [project-directory]
+   ```
+3. Install dependencies:
 
-```sh
-pnpm build
-```
+   ```bash
+   npm install
+   ```
 
-### Lint with [ESLint](https://eslint.org/)
+   or
 
-```sh
-pnpm lint
-```
+   ```bash
+   yarn install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   or
+   ```bash
+   yarn dev
+   ```
+
+## Features
+
+- List out key features of your project here.
+- Describe the functionality provided by different components, such as the `List` component which displays items with icons and bodies, and the modal for displaying information.
+
+## Components
+
+### `CustomSVG.vue`
+
+- This component renders a simple SVG with a rectangular background.
+- **Props:** None (can be extended for future customization).
+- **Usage:**
+  ```vue
+  <CustomSVG />
+  ```
+
+### `List.vue`
+
+- This component takes a list of items and renders them.
+- **Props:**
+  - `items`: Array of items to be displayed.
+  - `iconType`: String that determines the type of icon to render (e.g., 'image').
+- **Events:**
+  - `openModal`: Emits when an item is clicked to open a modal.
+
+### `ThingsToDo.vue`
+
+- This component displays a list of attractions with images and descriptions.
+- **Props:**
+  - `openModal`: Function to handle opening a modal.
+- **List Structure:**
+  ```javascript
+  const list = [
+    {
+      label: 'London Shuffle Club',
+      icon: '/london.png', // path to the image
+      body: '<div class="inner-list"><p class="text-gray-500">Free drink</p><p class="text-primary">0.1km</p></div>',
+    },
+    // More items...
+  ]
+  ```
+
+## Contribution
+
+Feel free to submit issues or pull requests if you have suggestions or enhancements.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
