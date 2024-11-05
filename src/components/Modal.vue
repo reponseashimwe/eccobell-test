@@ -5,7 +5,8 @@
       class="fixed md:relative lg:left-0 inset-0 bg-black bg-opacity-50 flex items-end justify-center bottom-0"
     >
       <div
-        class="bg-grayBg rounded-t-3xl w-full max-w-md md:max-w-full h-[calc(80vh)] md:h-[75vh] flex flex-col overflow-y-auto"
+        class="bg-grayBg rounded-t-3xl w-full max-w-md md:max-w-full h-[calc(80vh)] md:h-[75vh !important] flex flex-col overflow-y-auto"
+        :style="{ height: modalHeight + 'px' }"
       >
         <div class="flex-col flex gap-3 bg-white p-5 sticky top-0 shadow">
           <!-- Modal Header -->
@@ -70,7 +71,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, onMounted, computed, onUnmounted } from 'vue'
 import { XMarkIcon, ChevronLeftIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps({
@@ -89,6 +90,27 @@ const goBack = () => {
     emit('close')
   }
 }
+// Reactive property to hold the calculated modal height
+const modalHeight = computed(() => {
+  const viewportHeight = window.innerHeight // Get the viewport height
+  if (viewportHeight < 768) {
+    return viewportHeight * 0.9 // 80% of viewport height for small screens
+  }
+  return viewportHeight * 0.75 // 75% of viewport height for medium screens and up
+})
+
+// Set modal height when the component mounts
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    // Trigger a reactivity update on resize
+    modalHeight.value // Access the computed property to trigger update
+  })
+})
+
+// Clean up the resize event listener
+onUnmounted(() => {
+  window.removeEventListener('resize', () => {})
+})
 </script>
 
 <style scoped>

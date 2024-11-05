@@ -112,6 +112,7 @@ const openModal = index => {
   if (listRef.value) {
     listRef.value.scrollTop = 0
     window.scrollTo({ top: 0 })
+    document.body.style.overflowY = 'hidden'
   }
 }
 
@@ -157,6 +158,7 @@ const tabs = [
 
 const closeModal = () => {
   isModalOpen.value = false
+  document.body.style.overflowY = 'auto'
 }
 </script>
 
