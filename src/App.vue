@@ -1,6 +1,9 @@
 <template>
   <div class="md:content-row bg-dark min-h-screen flex justify-center w-full">
-    <div class="md:content-div flex flex-col gap-5 pt-6 w-full h-full">
+    <div
+      class="md:content-div flex flex-col gap-5 pt-6 w-full h-full"
+      ref="listRef"
+    >
       <div class="px-6 pb-6">
         <Header :roomNo="roomNo" :isModalOpen="isModalOpen" />
       </div>
@@ -88,6 +91,7 @@ const list = [
 
 const isModalOpen = ref(false)
 const activeTab = ref(null)
+const listRef = ref(null)
 
 const openModal = index => {
   const tab = tabs.find(t => t.title.toLowerCase() == index.toLowerCase())
@@ -103,6 +107,11 @@ const openModal = index => {
       component: Filler,
     }
     isModalOpen.value = true
+  }
+
+  if (listRef.value) {
+    listRef.value.scrollTop = 0
+    window.scrollTo({ top: 0 })
   }
 }
 

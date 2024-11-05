@@ -5,7 +5,7 @@
       class="fixed md:relative lg:left-0 inset-0 bg-black bg-opacity-50 flex items-end justify-center bottom-0"
     >
       <div
-        class="bg-grayBg rounded-t-3xl w-full max-w-md md:max-w-full h-[calc(90vh)] md:h-[75vh] flex flex-col overflow-y-auto"
+        class="bg-grayBg rounded-t-3xl w-full max-w-md md:max-w-full h-[calc(80vh)] md:h-[75vh] flex flex-col overflow-y-auto"
       >
         <div class="flex-col flex gap-3 bg-white p-5 sticky top-0 shadow">
           <!-- Modal Header -->
@@ -95,12 +95,24 @@ const goBack = () => {
 /* Modal slide-up animation */
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition: all 0.3s ease;
+  transition:
+    transform 0.9s ease,
+    opacity 0.9s ease;
 }
-.slide-up-enter-from {
+.slide-up-enter {
   transform: translateY(100%);
+  opacity: 0;
+}
+.slide-up-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+.slide-up-leave {
+  transform: translateY(0);
+  opacity: 1;
 }
 .slide-up-leave-to {
   transform: translateY(100%);
+  opacity: 0;
 }
 </style>
